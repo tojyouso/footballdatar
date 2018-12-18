@@ -5,7 +5,7 @@
 #'
 #' @param season The year (as a number) that the required season began.
 #' For example for the 2018/2019 season, use \code{2018}
-#' @param league The code (as a string) for the required league. At the moment only \code{"E0"}
+#' @param league_name The code (as a string) for the required league. At the moment only \code{"E0"}
 #' for the English Premier League is supported
 #'
 #' @examples \dontrun{
@@ -21,9 +21,11 @@ get_football_data <- function(season = 2017, league_name = "E0") {
                  "/",
                  league_name,
                  ".csv"),
-           stringsAsFactors = FALSE) %>%
-    mutate(season = season,
-           league = league_name)
+           stringsAsFactors = FALSE)
+  # %>%
+  #   dplyr::mutate(season = season,
+  #          league = league_name) %>%
+  #   janitor::clean_names(case = "snake")
 
   # # append the season as a column to the data
   # df$season <- rep(season, nrow(df))
