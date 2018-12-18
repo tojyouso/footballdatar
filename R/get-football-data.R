@@ -21,11 +21,10 @@ get_football_data <- function(season = 2017, league_name = "E0") {
                  "/",
                  league_name,
                  ".csv"),
-           stringsAsFactors = FALSE)
-  # %>%
-  #   dplyr::mutate(season = season,
-  #          league = league_name) %>%
-  #   janitor::clean_names(case = "snake")
+           stringsAsFactors = FALSE) %>%
+    dplyr::mutate(season = season,
+           league = league_name) %>%
+    janitor::clean_names(case = "snake")
 
   # # append the season as a column to the data
   # df$season <- rep(season, nrow(df))
