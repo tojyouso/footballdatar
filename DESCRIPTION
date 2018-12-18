@@ -1,11 +1,17 @@
 Package: footballdatar
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
+Title: Football data in Tidy Format
+Version: 0.0.0.9000
+Authors@R: person("Toju", "Idowu", email = "mtidowu@gmail.com",
+                  role = c("aut", "cre"))
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: A toolbox for analysing football data from <http://www.football-data.co.uk>.
+    Contains functions to download the data for each league, functions to build league tables
+    and functions to create interesting plots among other things
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
+Imports:
+    tidyverse,
+    lubridate
+RoxygenNote: 6.1.1
