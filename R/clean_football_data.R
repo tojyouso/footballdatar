@@ -6,7 +6,7 @@
 #' Pipe ready
 #'
 #' @param .data The data that needs to be cleaned.
-
+#' @export
 #' @examples \dontrun{
 #' clean_football_data(.data = get_football_data())
 #' }
@@ -16,7 +16,7 @@ clean_football_data <- function(.data) {
   # build the url for the required data and download as csv
   .data %>%
       janitor::clean_names(case = "snake") %>%
-      dplyr::mutate(date = lubridate::dm(date)) %>%
-    dplyr::select(league, season, date, everything(), - div)
+      dplyr::mutate(date = lubridate::dmy(date)) %>%
+    dplyr::select(league, season, date, dplyr::everything(), - div)
 
 }

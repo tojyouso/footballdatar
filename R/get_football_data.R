@@ -8,6 +8,7 @@
 #' @param league_name The code (as a string) for the required league. At the moment only \code{"E0"}
 #' for the English Premier League is supported
 #' @param clean Boolean. \code{TRUE} will clean the dataframe
+#' @export
 #' @examples \dontrun{
 #' get_football_data(season = 2017, league = "E0")
 #' }

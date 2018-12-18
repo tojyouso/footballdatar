@@ -7,7 +7,7 @@
 clean_football_data(.data)
 }
 \arguments{
-\item{.data}{The data that needs to be cleaned. Can also be used in a pi}
+\item{.data}{The data that needs to be cleaned.}
 }
 \description{
 Takes data downloaded from \url{http://www.football-data.co.uk} using
@@ -17,6 +17,6 @@ Pipe ready
 }
 \examples{
 \dontrun{
-clean_football_data(.data = football_data)
+clean_football_data(.data = get_football_data())
 }
 }
