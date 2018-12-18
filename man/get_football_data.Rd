@@ -4,7 +4,7 @@
 \alias{get_football_data}
 \title{Get season data for one league}
 \usage{
-get_football_data(season = 2017, league_name = "E0", clean = TRUE)
+get_football_data(season = 2017, league_name = "E0")
 }
 \arguments{
 \item{season}{The year (as a number) that the required season began.
@@ -12,8 +12,6 @@ For example for the 2018/2019 season, use \code{2018}}
 
 \item{league_name}{The code (as a string) for the required league. At the moment only \code{"E0"}
 for the English Premier League is supported}
-
-\item{clean}{Boolean. \code{TRUE} will clean the dataframe}
 }
 \description{
 Retrieve season level data from \url{http://www.football-data.co.uk} in a tidy format.
