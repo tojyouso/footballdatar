@@ -12,5 +12,6 @@ License: What license is it under?
 Encoding: UTF-8
 LazyData: true
 Imports:
-    
+    dplyr,
+    purrr
 RoxygenNote: 6.1.1

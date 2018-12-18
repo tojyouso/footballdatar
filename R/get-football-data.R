@@ -21,13 +21,15 @@ get_football_data <- function(season = 2017, league_name = "E0") {
                  "/",
                  league_name,
                  ".csv"),
-           stringsAsFactors = FALSE)
+           stringsAsFactors = FALSE) %>%
+    mutate(season = season,
+           league = league_name)
 
-  # append the season as a column to the data
-  df$season <- rep(season, nrow(df))
-
-  # attach the league name as a column to the data
-  df$league <- rep(league_name, nrow(df))
+  # # append the season as a column to the data
+  # df$season <- rep(season, nrow(df))
+  #
+  # # attach the league name as a column to the data
+  # df$league <- rep(league_name, nrow(df))
 
   return(df)
 }
