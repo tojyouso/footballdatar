@@ -1,6 +1,6 @@
 #' Get season data for one league
 #'
-#' Retrieve season level data from \code{football-data.co.uk} in a tidy format.
+#' Retrieve season level data from \url{http://www.football-data.co.uk} in a tidy format.
 #' The data is downloaded on a competition-season level
 #'
 #' @param season The year (as a number) that the required season began.
@@ -12,13 +12,22 @@
 #' get_football_data(season = 2017, league = "E0")
 #' }
 
-get_football_data <- function(season = 2017, league = "E0") {
+get_football_data <- function(season = 2017, league_name = "E0") {
 
-  read_csv(str_c("http://www.football-data.co.uk/mmz4281/",
-                 str_sub(season, 3, 4),
-                 str_sub(season + 1, 3, 4),
+  # build the url for the required data and download as csv
+  df <- read.csv(paste0("http://www.football-data.co.uk/mmz4281/",
+                 substr(season, 3, 4),
+                 substr(season + 1, 3, 4),
                  "/",
-                 league,
-                 ".csv")) %>%
-    mutate(season = season)
+                 league_name,
+                 ".csv"),
+           stringsAsFactors = FALSE)
+
+  # append the season as a column to the data
+  df$season <- rep(season, nrow(df))
+
+  # attach the league name as a column to the data
+  df$league <- rep(league_name, nrow(df))
+
+  return(df)
 }
