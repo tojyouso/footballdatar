@@ -3,4 +3,5 @@
 export("%>%")
 export(clean_football_data)
 export(get_football_data)
+export(transform_to_team_level)
 importFrom(magrittr,"%>%")
