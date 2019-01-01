@@ -16,7 +16,7 @@ transform_to_team_level <- function(.data) {
   purrr::pmap_dfr(
            function(home_team, away_team, fthg, ftag, date,
                     hs, as, hst, ast, ...) {
-             data_frame(
+             tibble::data_frame(
                date = c(date, date),
                team = c(home_team, away_team),
                opponent = c(away_team, home_team),
@@ -30,5 +30,6 @@ transform_to_team_level <- function(.data) {
 
              )
            }) %>%
-    mutate(date = lubridate::as_date(date))
+    dplyr::mutate(date = lubridate::as_date(date),
+           points = 3 * (goals_scored > goals_conceded) + 1 * (goals_scored == goals_conceded))
 }
