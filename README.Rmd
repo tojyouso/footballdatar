@@ -1,0 +1,58 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# footballdatar
+
+The goal of footballdatar is to make it easy to use data from [football-data.co.uk]() in `R`.
+
+## Installation
+
+Currently only available on github (not sure it will ever get to CRAN tbh) and can be installed via:
+
+``` r
+devtools::install_github("tojyouso/footballdatar")
+```
+
+## Examples
+
+### Get football data
+
+Currently only downloads data for the EPL but this will be extended to the other European leagues soon. So for the 2017/2018 season use the following:
+
+```{r example}
+epl_2017 <- footballdatar::get_football_data(season = 2017)
+
+epl_2017
+```
+
+### Clean football data
+
+The package also contains a function to clean the data so all the column names are in snake case. Soon, I'll add functionality to set it so any case could be used by using the `janitor` package.
+
+```{r}
+epl_2017_clean <- footballdatar::clean_football_data(epl_2017)
+
+epl_2017_clean
+```
+
+It also adds some helper columns like `season`.
+
+### Transform from match level to team level
+
+The final function is a helper function to convert the data from match level to team level. This allows for easy calculation of league points for example. It doubles the amount of rows as there will be two rows per match, one for each team and an indicator as to whether that team was home or away.
+
+```{r}
+footballdatar::transform_to_team_level(epl_2017_clean)
+```
+

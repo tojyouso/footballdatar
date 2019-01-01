@@ -8,7 +8,7 @@ Maintainer: The package maintainer <yourself@somewhere.net>
 Description: A toolbox for analysing football data from <http://www.football-data.co.uk>.
     Contains functions to download the data for each league, functions to build league tables
     and functions to create interesting plots among other things
-License: What license is it under?
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
